@@ -20,5 +20,6 @@ echo "Installing pre-commit"
 pip install pre-commit
 
 # Run pre-commit with extra arguments
-cd $GITHUB_WORKSPACE
+find / -name "dbt_project.yml"
+ls -lha $GITHUB_WORKSPACE
 pre-commit run $INPUT_EXTRA_ARGS
