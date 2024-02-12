@@ -22,6 +22,7 @@ pip install pre-commit
 # Run pre-commit with extra arguments
 find / -name "dbt_project.yml"
 ls -lha $GITHUB_WORKSPACE
+git config --global --add safe.directory $GITHUB_WORKSPACE
 cd $GITHUB_WORKSPACE
 echo $PATH
 git status
