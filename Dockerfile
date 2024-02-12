@@ -1,8 +1,12 @@
 FROM python:3.8-slim
-
+WORKDIR /github/workspace
 # Copy the entrypoint script into the Docker container
-COPY entrypoint.sh /github/workspace/entrypoint.sh
-RUN chmod +x /github/workspace/entrypoint.sh
 
+RUN apt-get update &&\
+    apt-get upgrade -y && \
+    apt-get install -y git && 
+
+COPY entrypoint.sh ./entrypoint.sh
+RUN chmod +x entrypoint.sh
 # Set the entrypoint command
-ENTRYPOINT ["/github/workspace/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
