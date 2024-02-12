@@ -1,0 +1,20 @@
+name: dbt-checkpoint
+description: run dbt-checkpoint
+inputs:
+  extra_args:
+    description: 'dbt-checkpoint args'
+    required: false
+    default: '--all-files'
+  dbt_version: 
+    description: 'Version of dbt to install'
+    required: false
+  dbt_adapter:
+    description: 'dbt adapter to install'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.extra_args }}
+    - ${{ inputs.dbt_version }}
+    - ${{ inputs.dbt_adapter }}
